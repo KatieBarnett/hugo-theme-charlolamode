@@ -9,7 +9,7 @@
         <div class="profile-description">{{ .description | markdownify }}</div>
         {{- partial "social_icons.html" $.Site.Params.socialIcons -}}
 
-        {{- with .buttons }}
+<!--         {{- with .buttons }}
         <div class="buttons">
             {{- range . }}
             <a class="button" href="{{ trim .url " " }}" rel="noopener" title="{{ .name | title }}">
@@ -17,7 +17,7 @@
             </a>
             {{- end }}
         </div>
-        {{- end }}
+        {{- end }} -->
     </div>
     {{- end}}
 </div>
