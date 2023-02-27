@@ -34,7 +34,7 @@
 {{- end }}
 
 {{- /* Styles */}}
-{{- $theme_vars := (resources.Get "css/core/theme-vars.css") }}
+{{ partial "styles.html" . }}
 {{- $reset := (resources.Get "css/core/reset.css") }}
 {{- $media := (resources.Get "css/core/zmedia.css") }}
 {{- $common := (resources.Match "css/common/*.css") | resources.Concat "assets/css/common.css" }}
@@ -44,7 +44,7 @@
 {{- $hljs := (cond ($isHLJSdisabled) (" " | resources.FromString "assets/css/hljs-blank.css") (resources.Get "css/hljs/an-old-hope.min.css")) }}
 
 {{- /* order is important */}}
-{{- $core := (slice $theme_vars $reset $common $hljs $media) | resources.Concat "assets/css/core.css" }}
+{{- $core := (slice $reset $common $hljs $media) | resources.Concat "assets/css/core.css" }}
 {{- $extended := (resources.Match "css/extended/*.css") | resources.Concat "assets/css/extended.css" }}
 
 {{- /* bundle all required css */}}

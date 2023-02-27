@@ -1,0 +1,41 @@
+<style>
+:root {
+    --gap: 24px;
+    --content-gap: 20px;
+    --nav-width: 1024px;
+    --main-width: 720px;
+    --header-height: 60px;
+    --footer-height: 60px;
+    --radius: 8px;
+    --theme: {{ .Site.Params.palette.root.theme | default "#FFFFFF" }};
+    --entry: {{ .Site.Params.palette.root.entry | default "#FFFFFF" }};
+    --primary: {{ .Site.Params.palette.root.primary | default "#1E1E1E" }};
+    --secondary: {{ .Site.Params.palette.root.secondary | default "#6C6C6C" }};
+    --tertiary: {{ .Site.Params.palette.root.tertiary | default "#D6D6D6" }};
+    --content: {{ .Site.Params.palette.root.content | default "#1F1F1F" }};
+    --hljs-bg: {{ .Site.Params.palette.root.hljsbg | default "#1C1D21" }};
+    --code-bg: {{ .Site.Params.palette.root.codebg | default "#F5F5F5" }};
+    --border: {{ .Site.Params.palette.root.border | default "#EEEEEE" }};
+}
+
+.dark {
+    --theme: {{ .Site.Params.palette.dark.theme | default "#1D1E20" }};
+    --entry: {{ .Site.Params.palette.dark.entry | default "#2E2E33" }};
+    --primary: {{ .Site.Params.palette.dark.primary | default "#DADADB" }};
+    --secondary: {{ .Site.Params.palette.dark.secondary | default "#9B9C9D" }};
+    --tertiary: {{ .Site.Params.palette.dark.tertiary | default "#414244" }};
+    --content: {{ .Site.Params.palette.dark.content | default "#C4C4C5" }};
+    --hljs-bg: {{ .Site.Params.palette.dark.hljsbg | default "#2E2E33" }};
+    --code-bg: {{ .Site.Params.palette.dark.codebg | default "#37383E" }};
+    --border: {{ .Site.Params.palette.dark.border | default "#333333" }};
+}
+
+.list {
+    background: var(--code-bg);
+}
+
+.dark.list {
+    background: var(--theme);
+}
+
+</style>
