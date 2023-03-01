@@ -70,6 +70,14 @@
     line-height: 1.3;
 }
 
+.entry-header h3 {
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: normal;
+    color: var(--secondary);
+    margin-top: var(--gap-small);
+}
+
 
 .profilebox {
     display: flex;

@@ -22,15 +22,13 @@
 </div>
 {{- end }}
 
-
-
 {{- $pages := union .RegularPages .Sections }}
 
 {{- if .IsHome }}
 {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
 {{- end }}
 
-{{- $paginator := .Paginate $pages }}
+{{- $paginator := .Paginate $pages.ByDate.Reverse }}
 
 {{- if and .IsHome .Site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
 {{- partial "home_info.html" . }}
@@ -57,6 +55,11 @@
         {{- .Title }}
         {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
       </h2>
+      {{- if .Params.Subtitle }}
+        <h3>
+        {{- .Params.Subtitle }}
+        </h3>
+      {{- end }}
     </header>
     {{- if (ne (.Param "hideSummary") true) }}
     <section class="entry-content">

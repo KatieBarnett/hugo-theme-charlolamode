@@ -17,6 +17,10 @@
 {{- $scratch.Add "meta" (slice .) }}
 {{- end }}
 
+{{- if (.Params.Source) -}}
+{{- $scratch.Add "meta" (.Params.Source) }}
+{{- end }}
+
 {{- with ($scratch.Get "meta") }}
 {{- delimit . "&nbsp;·&nbsp;" -}}
 {{- end -}}
