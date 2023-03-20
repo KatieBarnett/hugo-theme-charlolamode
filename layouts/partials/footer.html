@@ -5,6 +5,10 @@
     {{- else }}
     <span> built with ♥ from charlola
     {{- end }}
+
+    {{- if .Site.Params.Updated }}
+        <p> Last updated: {{ (.Site.Params.Updated | time.Format (default "January 2, 2006" .Site.Params.DateFormat)) }}</p>
+    {{- end }}
       <!--
     <div><span> <a href="{{ "" | absLangURL }}">{{ .Site.Title }}</a> </span></div>
     <span>
