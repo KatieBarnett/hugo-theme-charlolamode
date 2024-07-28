@@ -13,6 +13,15 @@
     {{ .Description | markdownify }}
   </div>
   {{- end }}
+
+  <ul class="post-tags">
+    {{range $name, $taxonomy := .Site.Taxonomies.tags}} {{ $count := .Count }}
+    {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
+      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }} ({{$count}})</a></li>
+    {{end}}
+  {{end}}
+  </ul>
+
 </header>
 {{- end }}
 
@@ -46,7 +55,6 @@
 {{- $class = "post-entry tag-entry" }}
 {{- end }}
 
-
   <article class="{{ $class }}">
     {{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
     {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
@@ -73,7 +81,7 @@
     {{- end }}
     {{- if not (.Param "hideMeta") }}
     <footer class="entry-footer">
-      {{- partial "post_meta.html" . -}}
+      {{- partial "post_meta_list.html" . -}}
     </footer>
     {{- end }}
   {{- if .Params.link }}

@@ -74,3 +74,7 @@ a {
 .header a, .social-icons a {
     color: var(--primary);
 }
+
+.page-header .post-tags {
+    margin-top: 1em;
+}

@@ -25,4 +25,11 @@
 {{- delimit . " · " -}}
 {{- end -}}
 
+{{- if .Params.tags }}
+<ul class="post-tags">
+  {{- range ($.GetTerms "tags") }}
+  <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+  {{- end }}
+</ul>
+{{- end }}
 
