@@ -14,13 +14,15 @@
   </div>
   {{- end }}
 
+  {{- if .Param "ShowTags" }}
   <ul class="post-tags">
     {{range $name, $taxonomy := .Site.Taxonomies.tags}} {{ $count := .Count }}
     {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
-      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }} ({{$count}})</a></li>
+      <li><a href="{{ .Permalink }}">{{ .LinkTitle }} ({{$count}})</a></li>
     {{end}}
   {{end}}
   </ul>
+  {{end}}
 
 </header>
 {{- end }}
