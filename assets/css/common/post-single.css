@@ -430,3 +430,8 @@ h6:hover .anchor {
 [dir="rtl"] .paginav .next {
     text-align: left;
 }
+
+summary {
+    color: var(--code-color);
+    font-size: 16px;
+}
